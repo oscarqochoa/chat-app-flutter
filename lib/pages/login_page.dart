@@ -76,7 +76,7 @@ class _FormState extends State<_Form> {
           ),
           BotonAzul(
             text: "Ingresar",
-            onPressed: authService.autenticando ? null : _login(authService),
+            onPressed: authService.autenticando ? (){} : _login(authService),
           ),
         ],
       ),
@@ -90,7 +90,8 @@ class _FormState extends State<_Form> {
         await authService.login(emailCtrl.text.trim(), passCtrl.text.trim());
 
     if (loginOk) {
-      // todo: Navegar a otra pantalla
+      // todo: Conectar a nuestro socket server
+      Navigator.pushReplacementNamed(context, 'usuarios');
     } else {
       // todo: Mostrar Alerta
       mostrarAlerta(context, 'Login inccorrecto', 'Revise sus credenciales');
