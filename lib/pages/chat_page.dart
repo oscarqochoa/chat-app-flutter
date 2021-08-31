@@ -104,7 +104,6 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
                           ? () => _handleSubmit(_textController.text.trim())
                           : null,
                     )
-                    
                   : Container(
                       margin: EdgeInsets.symmetric(horizontal: 4.0),
                       child: IconTheme(
@@ -149,5 +148,15 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
     setState(() {
       _estaEscribiendo = false;
     });
+  }
+
+  @override
+  void dispose() {
+    // todo: off del socket
+
+    for (ChatMessage message in _messages) {
+      message.animationController.dispose();
+    }
+    super.dispose();
   }
 }

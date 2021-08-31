@@ -27,7 +27,7 @@ class _UsuariosPageState extends State<UsuariosPage> {
     Usuario(
       online: true,
       email: 'oscarquirozoch@gmail.com',
-      nombre: 'Rebecca',
+      nombre: 'Oscar',
       uid: '3',
     ),
   ];
